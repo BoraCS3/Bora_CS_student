@@ -93,11 +93,12 @@ public class TaskAssignmentSystem {
     public static void main(String[] args) {
         while (true) {
             clearScreen();
+            System.out.println("----------------Menu---------------\n");
             System.out.println("1. Tasks");
             System.out.println("2. Group members");
             System.out.println("3. Present task assignments");
             System.out.println("4. Exit");
-
+            System.out.println("------------------------------------\n");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -124,11 +125,12 @@ public class TaskAssignmentSystem {
     private static void handleTasks() {
         while (true) {
             clearScreen();
-            System.out.println("Tasks:");
+            System.out.println("================Task===============\n");
+//            System.out.println("Tasks:");
             System.out.println("1. Show task data");
             System.out.println("2. Create a task");
             System.out.println("3. Back to main menu");
-
+            System.out.println("===================================\n");
             System.out.print("Enter your choice: ");
             char choice = Character.toUpperCase(scanner.nextLine().charAt(0));
 
@@ -150,11 +152,12 @@ public class TaskAssignmentSystem {
     private static void handleGroupMembers() {
         while (true) {
             clearScreen();
+            System.out.println("================Member===============\n");
             System.out.println("Group Members:");
             System.out.println("1. Show group member data");
             System.out.println("2. Add group member");
             System.out.println("3. Back to main menu");
-
+            System.out.println("====================================\n");
             System.out.print("Enter your choice: ");
             char choice = Character.toUpperCase(scanner.nextLine().charAt(0));
 
@@ -174,6 +177,7 @@ public class TaskAssignmentSystem {
     }
 
     private static void createTask() {
+        System.out.println("==============Task Information===============\n");
         System.out.print("Enter number of tasks: ");
         int nTasks = scanner.nextInt();
         scanner.nextLine(); // Consume newline
@@ -182,7 +186,7 @@ public class TaskAssignmentSystem {
             System.out.print("Enter task number: ");
             int taskNo = scanner.nextInt();
             scanner.nextLine(); // Consume newline
-            System.out.print("Enter task name: ");
+            System.out.print("Enter task position: ");
             String name = scanner.nextLine();
             System.out.print("Enter task description: ");
             String description = scanner.nextLine();
@@ -198,9 +202,12 @@ public class TaskAssignmentSystem {
             tasks.add(task);
             System.out.println("Task created successfully.");
         }
+        System.out.println("============================================\n");
+
     }
 
     private static void showTaskData() {
+        System.out.println("============Display Task Information============\n");
         if (tasks.isEmpty()) {
             System.out.println("No tasks available.");
             return;
@@ -211,9 +218,12 @@ public class TaskAssignmentSystem {
                 System.out.println(task.getTaskNo() + "\t" + task.getName() + "\t" + task.getDescription() + "\t" + task.getRequiredSkills() + "\t" + task.getDeadline());
             }
         }
+        System.out.println("===============================================\n");
+
     }
 
     private static void addGroupMember() {
+        System.out.println("==========Input Member Information===========\n");
         System.out.print("Enter number of group members: ");
         int nGroupMembers = scanner.nextInt();
         scanner.nextLine(); // Consume newline
@@ -240,9 +250,11 @@ public class TaskAssignmentSystem {
             teamMembers.add(member);
             System.out.println("Member added successfully.");
         }
+        System.out.println("============================================\n");
     }
 
     private static void showGroupMemberData() {
+        System.out.println("========Display Member Information=========\n");
         if (teamMembers.isEmpty()) {
             System.out.println("No group members available.");
             return;
@@ -253,14 +265,17 @@ public class TaskAssignmentSystem {
                 System.out.println(member.getId() + "\t" + member.getName() + "\t" + member.getSkills() + "\t" + member.getWorkload()+ "\t\t" + member.isAvailable());
             }
         }
+        System.out.println("==========================================\n");
     }
 
     private static void presentTaskAssignments() {
+        System.out.println("==============Task Assignments============\n");
         if (tasks.isEmpty()) {
             System.out.println("No tasks available.");
             return;
         }
-        System.out.println("Task Assignments:");
+//        System.out.println("==============Task Assignments============\n");
+        System.out.println("Task Assignment:");
         for (Task task : tasks) {
             System.out.println("Task                   : " + task.getName());
             System.out.println("TaskNo                 : " + task.getTaskNo());
@@ -283,6 +298,7 @@ public class TaskAssignmentSystem {
             }
             System.out.println();
         }
+        System.out.println("===========================================\n");
     }
 
     private static boolean hasRequiredSkills(TeamMember member, Task task) {
